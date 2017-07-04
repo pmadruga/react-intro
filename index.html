@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- Because I am lazy person when it comes to keynote making, I have copy pasted most of what you see here from the reveal.js -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>React Intro</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/night.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100, 200, 400,300,500,700' rel='stylesheet' type='text/css'>
+
+
+  <style>
+    .reveal {
+      font-family: "Roboto", 'sans-serif';
+      font-weight: 300
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4{
+      font-family: "Roboto", 'sans-serif';
+    }
+    .screenshots {
+      width: 50%;
+    }
+
+    .reveal li {
+      margin-top: 18px;
+      list-style-type: disc;
+    }
+
+    .draft {
+      width: 331px;
+    }
+  </style>
+  <!-- Printing and PDF exports -->
+  <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+</head>
+
+<body>
+  <!-- Ok this content is mine. 
+    Not that lazy afterall, eh? -->
+  <div class="reveal">
+    <div class="slides">
+
+      <section data-markdown>
+
+        <script type="text/template">
+          # React intro
+         
+
+          * [Pedro Madruga](http://www.pedromadruga.com)
+          * Twitter: [@_pedrobot](http://twitter.com/_pedrobot)
+          * Github: [@pmadruga](http://github.com/pmadruga)
+
+        </script>
+      </section>
+      <section data-markdown>
+        <script type="text/template">
+          ## Index
+          - History & context
+          - Definition
+          - Key points
+          - What else?
+
+         </script>
+      </section>
+
+      <section >
+        <section>
+        <img class="screenshots" src="./img/IMG_0954.jpg"/>
+        </section>
+
+        <section>
+        <img class="screenshots" src="./img/IMG_0950.jpg"/>
+        </section>
+        <section>
+        <img class="screenshots" src="./img/IMG_0953.jpg"/>
+        </section>
+
+        <section>
+        <img class="screenshots" src="./img/IMG_0952.jpg"/>
+        </section>
+        
+        
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          # History & Context
+         </script>
+      </section>
+
+      
+        <section data-markdown>
+       ### The path to React
+     </section>
+
+     <section>
+
+      <p class="fragment" data-fragment-index="1">Javascript</p>
+      <p class="fragment" data-fragment-index="2">Jquery</p>
+      <p class="fragment" data-fragment-index="3">Backbone</p>
+      <p class="fragment" data-fragment-index="4">Angular (two-way data-binding)</p>
+      <p class="fragment" data-fragment-index="5">(ember, mythril, ...)</p>
+      <p class="fragment" data-fragment-index="6">React (one-way data flow)</p>
+
+      </section>
+
+     
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Definition
+        
+          - Definition (1)
+            > React is a declarative, efficient, and flexible JavaScript library for building user interfaces.
+          - The 'V' in MVC.
+          - A library. Not a framework.
+          - Speedy. (2)
+
+          <img class="screenshots" src="./img/chart.png">
+         </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Key points
+        
+          - JSX
+            - Virtual DOM
+            - Reconciliation
+          - Components and props
+           - 'Everything' is a component!
+          - State and lifecycle
+
+          <img class="screenshots" src="./img/chart.png">
+         </script>
+      </section>
+
+<section>
+  <pre><code data-trim>
+    ReactDOM.render(
+      <h1>Hello, world!</h1>,
+      document.getElementById('root')
+    );
+  </code></pre>
+</section>
+
+<section data-markdown>
+        <script type="text/template">
+          ## JSX
+        
+          - Represents objects
+          - ... called React Elements.
+          - Uses them to construct the DOM.
+
+          <img class="screenshots" src="./img/chart.png">
+         </script>
+      </section>
+
+      <section>
+        So, 
+  <pre><code data-trim>
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+  </code></pre>
+turns into
+    <pre><code data-trim>
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world'
+  }
+};
+  </code></pre>
+
+  And then it updates the DOM.
+</section>
+
+
+<section data-markdown>
+        <script type="text/template">
+          ## Virtual DOM / React DOM
+        
+          > React DOM compares the element and its children to the previous one, and only applies the DOM updates necessary to bring the DOM to the desired state.
+
+          - Reconciliation: a diffing algorithm.
+
+       
+         </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## Components and props
+        
+          - Create components
+          - Send props between them.
+          - Demo: https://codepen.io/gaearon/pen/YGYmEG?editors=0010
+
+       
+         </script>
+      </section>
+
+       <section data-markdown>
+        <script type="text/template">
+          ## State
+        
+          - Initial state
+          - Changed State
+          - Lifecycle hooks
+          - Demo: https://codepen.io/_pedrobot/pen/pwKEaE?editors=1010#0
+
+       
+         </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+          ## What else?  
+        
+          - State management tools
+            - Redux / Mobx
+
+          - Forks 
+            - React Native.
+            - React VR.
+
+          <img class="screenshots" src="./img/chart.png">
+         </script>
+      </section>
+
+
+
+      <section data-markdown>
+        <script type="text/template">
+          # Sources
+          1. React Docs.
+          2. https://auth0.com/blog/more-benchmarks-virtual-dom-vs-angular-12-vs-mithril-js-vs-the-rest/
+         </script>
+      </section>
+
+
+
+      <section data-markdown>
+
+        
+        <script type="text/template"> 
+
+        Thanks,
+
+        Pedro.
+         </script>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+</body>
+
+</html>
